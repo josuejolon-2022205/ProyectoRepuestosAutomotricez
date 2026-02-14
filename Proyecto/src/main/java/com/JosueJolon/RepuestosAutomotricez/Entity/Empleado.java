@@ -2,7 +2,7 @@ package com.JosueJolon.RepuestosAutomotricez.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 
 // entity es una entidad en spring que es una clase anotada que representa una tabla en una BD relacional, actua como un puente
 // entre la poo y sql(JPA hibernate) permitiendo mapear automaticamente atributos a columnas
