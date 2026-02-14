@@ -2,7 +2,6 @@ package com.JosueJolon.RepuestosAutomotricez.Controllers;
 
 import com.JosueJolon.RepuestosAutomotricez.Entity.Ventas;
 
-import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
 import com.JosueJolon.RepuestosAutomotricez.Service.VentasService;
 import jakarta.validation.Valid;
 import org.hibernate.ObjectNotFoundException;

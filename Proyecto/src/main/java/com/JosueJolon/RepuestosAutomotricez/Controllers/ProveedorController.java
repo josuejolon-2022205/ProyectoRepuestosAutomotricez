@@ -1,7 +1,7 @@
 package com.JosueJolon.RepuestosAutomotricez.Controllers;
 
 import com.JosueJolon.RepuestosAutomotricez.Entity.Proveedor;
-import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
+import com.JosueJolon.RepuestosAutomotricez.Exception.Exceptions;
 import com.JosueJolon.RepuestosAutomotricez.Service.ProveedorService;
 import jakarta.validation.Valid;
 import org.hibernate.ObjectNotFoundException;
@@ -45,7 +45,7 @@ public class ProveedorController {
             return new ResponseEntity<>(proveedor1, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (ResourceNotFoundException e) {
+        } catch (Exceptions e) {
             return ResponseEntity.notFound().build();
         }
     }

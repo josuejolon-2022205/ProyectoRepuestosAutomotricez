@@ -1,7 +1,7 @@
 package com.JosueJolon.RepuestosAutomotricez.Controllers;
 
 import com.JosueJolon.RepuestosAutomotricez.Entity.Empleado;
-import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
+import com.JosueJolon.RepuestosAutomotricez.Exception.Exceptions;
 import com.JosueJolon.RepuestosAutomotricez.Service.EmpleadoService;
 import jakarta.validation.Valid;
 import org.hibernate.ObjectNotFoundException;
@@ -46,7 +46,7 @@ public class EmpleadosController {
             return ResponseEntity.ok(empleado1);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (ResourceNotFoundException e) {
+        } catch (Exceptions e) {
             return ResponseEntity.notFound().build();
         }
     }

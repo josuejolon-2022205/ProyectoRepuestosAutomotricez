@@ -1,6 +1,5 @@
 package com.JosueJolon.RepuestosAutomotricez.Exception;
 
-import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -15,8 +14,8 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> validarMapeo(ResourceNotFoundException e){
+    @ExceptionHandler(Exceptions.class)
+    public ResponseEntity<?> validarMapeo(Exceptions e){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Error", "no se encontro el id"));
 
     }

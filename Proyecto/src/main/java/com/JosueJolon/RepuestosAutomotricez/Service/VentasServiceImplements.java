@@ -1,7 +1,7 @@
 package com.JosueJolon.RepuestosAutomotricez.Service;
 
 import com.JosueJolon.RepuestosAutomotricez.Entity.Ventas;
-import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
+import com.JosueJolon.RepuestosAutomotricez.Exception.Exceptions;
 import com.JosueJolon.RepuestosAutomotricez.Repository.VentasRepository;
 import com.JosueJolon.RepuestosAutomotricez.Validator.VentasValidator;
 import org.springframework.stereotype.Service;
@@ -51,7 +51,7 @@ public class VentasServiceImplements implements VentasService{
             updateVentas.setId_empleado(ventas.getId_empleado());
             updateVentas.setId_repuesto(ventas.getId_repuesto());
         } else {
-            throw new ResourceNotFoundException("el id de ventas no existe");
+            throw new Exceptions("el id de ventas no existe");
         }
 
         return ventasRepository.save(updateVentas);
@@ -62,7 +62,7 @@ public class VentasServiceImplements implements VentasService{
 
         Ventas ventas = ventasRepository.findById(id).orElse(null);
         if(ventas == null){
-            throw new ResourceNotFoundException("el id de ventas no existe");
+            throw new Exceptions("el id de ventas no existe");
         }
         ventasRepository.deleteById(id);
 

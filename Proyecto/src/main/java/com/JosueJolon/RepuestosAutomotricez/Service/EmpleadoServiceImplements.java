@@ -2,7 +2,7 @@ package com.JosueJolon.RepuestosAutomotricez.Service;
 
 
 import com.JosueJolon.RepuestosAutomotricez.Entity.Empleado;
-import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
+import com.JosueJolon.RepuestosAutomotricez.Exception.Exceptions;
 import com.JosueJolon.RepuestosAutomotricez.Repository.EmpleadoRepository;
 import com.JosueJolon.RepuestosAutomotricez.Validator.EmpleadosValidator;
 import org.springframework.stereotype.Service;
@@ -50,7 +50,7 @@ public class EmpleadoServiceImplements implements EmpleadoService {
             empleados.setPuesto_empleado(empleado.getPuesto_empleado());
             empleados.setEmail_empleado(empleado.getEmail_empleado());
         } else {
-            throw new ResourceNotFoundException("el id del empleado no existe");
+            throw new Exceptions("el id del empleado no existe");
         }
         return empleadoRepository.save(empleados);
     }
@@ -59,7 +59,7 @@ public class EmpleadoServiceImplements implements EmpleadoService {
     public void deleteEmpleado(Integer id) {
         Empleado empleado = empleadoRepository.findById(id).orElse(null);
         if(empleado == null){
-            throw new ResourceNotFoundException("el id del empleado no existe");
+            throw new Exceptions("el id del empleado no existe");
         }
 
         empleadoRepository.deleteById(id);

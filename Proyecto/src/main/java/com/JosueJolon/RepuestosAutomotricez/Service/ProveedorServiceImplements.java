@@ -2,7 +2,7 @@ package com.JosueJolon.RepuestosAutomotricez.Service;
 
 
 import com.JosueJolon.RepuestosAutomotricez.Entity.Proveedor;
-import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
+import com.JosueJolon.RepuestosAutomotricez.Exception.Exceptions;
 import com.JosueJolon.RepuestosAutomotricez.Repository.ProveedorRepository;
 import com.JosueJolon.RepuestosAutomotricez.Validator.ProveedorValidator;
 import org.springframework.stereotype.Service;
@@ -52,7 +52,7 @@ public class ProveedorServiceImplements implements ProveedorService {
             proveedores.setEmail_proveedor(proveedor.getEmail_proveedor());
 
         }else {
-            throw new ResourceNotFoundException("el id del proveedor no existe");
+            throw new Exceptions("el id del proveedor no existe");
         }
         return proveedorRepository.save(proveedores);
     }
@@ -61,7 +61,7 @@ public class ProveedorServiceImplements implements ProveedorService {
     public void deleteProveedor(Integer id) {
         Proveedor proveedor = proveedorRepository.findById(id).orElse(null);
         if(proveedor == null){
-            throw new ResourceNotFoundException("el id del proveedor no existe");
+            throw new Exceptions("el id del proveedor no existe");
         }
         proveedorRepository.deleteById(id);
     }

@@ -1,7 +1,7 @@
 package com.JosueJolon.RepuestosAutomotricez.Service;
 
 import com.JosueJolon.RepuestosAutomotricez.Entity.Repuestos;
-import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
+import com.JosueJolon.RepuestosAutomotricez.Exception.Exceptions;
 import com.JosueJolon.RepuestosAutomotricez.Repository.RepuestoRepository;
 import com.JosueJolon.RepuestosAutomotricez.Validator.RepuestoValidator;
 import org.springframework.stereotype.Service;
@@ -51,7 +51,7 @@ public class RepuestoServiceImplements implements RepuestoService{
             actRepuestos.setPrecio_venta(repuestos.getPrecio_venta());
             actRepuestos.setId_proveedor(repuestos.getId_proveedor());
         }else {
-            throw new ResourceNotFoundException("el id del repuesto no existe");
+            throw new Exceptions("el id del repuesto no existe");
         }
         return repuestoRepository.save(actRepuestos);
     }
@@ -60,7 +60,7 @@ public class RepuestoServiceImplements implements RepuestoService{
     public void deleteRepuestos(Integer id) {
         Repuestos repuestos = repuestoRepository.findById(id).orElse(null);
         if(repuestos == null){
-            throw new ResourceNotFoundException("el id del repuesto no existe");
+            throw new Exceptions("el id del repuesto no existe");
         }
         repuestoRepository.deleteById(id);
 
