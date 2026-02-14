@@ -1,7 +1,8 @@
 package com.JosueJolon.RepuestosAutomotricez.Controllers;
 
 
-import com.JosueJolon.RepuestosAutomotricez.Models.Empleado;
+import com.JosueJolon.RepuestosAutomotricez.Entity.Empleado;
+import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
 import com.JosueJolon.RepuestosAutomotricez.Service.EmpleadoService;
 import jakarta.validation.Valid;
 import org.hibernate.ObjectNotFoundException;
@@ -41,11 +42,13 @@ public class EmpleadosController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateEmpleado(@PathVariable Integer id, @Valid @RequestBody Empleado empleado){
+    public ResponseEntity<Object> updateEmpleado(@Valid @RequestBody Empleado empleado, @PathVariable Integer id){
         try {
-            Empleado updateEmpleado = empleadoService.updateEmpleado(id, empleado);
-            return ResponseEntity.ok(updateEmpleado);
-        }catch (ObjectNotFoundException e){
+            Empleado empleado1 = empleadoService.updateEmpleado(id, empleado);
+            return ResponseEntity.ok(empleado1);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (ResourceNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
     }
