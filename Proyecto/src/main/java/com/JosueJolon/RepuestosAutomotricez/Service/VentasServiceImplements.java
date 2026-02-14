@@ -1,11 +1,7 @@
 package com.JosueJolon.RepuestosAutomotricez.Service;
 
-import com.JosueJolon.RepuestosAutomotricez.Entity.Empleado;
-import com.JosueJolon.RepuestosAutomotricez.Entity.Repuestos;
 import com.JosueJolon.RepuestosAutomotricez.Entity.Ventas;
 import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
-import com.JosueJolon.RepuestosAutomotricez.Repository.EmpleadoRepository;
-import com.JosueJolon.RepuestosAutomotricez.Repository.RepuestoRepository;
 import com.JosueJolon.RepuestosAutomotricez.Repository.VentasRepository;
 import com.JosueJolon.RepuestosAutomotricez.Validator.VentasValidator;
 import org.springframework.stereotype.Service;
@@ -15,14 +11,10 @@ import java.util.List;
 @Service
 public class VentasServiceImplements implements VentasService{
     private final VentasRepository ventasRepository;
-    private final RepuestoRepository repuestoRepository;
-    private final EmpleadoRepository empleadoRepository;
     private final VentasValidator ventasValidator;
 
-    public VentasServiceImplements(VentasRepository ventasRepository, RepuestoRepository repuestoRepository, EmpleadoRepository empleadoRepository, VentasValidator ventasValidator) {
+    public VentasServiceImplements(VentasRepository ventasRepository, VentasValidator ventasValidator) {
         this.ventasRepository = ventasRepository;
-        this.repuestoRepository = repuestoRepository;
-        this.empleadoRepository = empleadoRepository;
         this.ventasValidator = ventasValidator;
     }
 
