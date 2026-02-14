@@ -1,8 +1,6 @@
 package com.JosueJolon.RepuestosAutomotricez.Service;
 
-import com.JosueJolon.RepuestosAutomotricez.Models.Empleado;
-import com.JosueJolon.RepuestosAutomotricez.Models.Repuestos;
-import org.springframework.stereotype.Service;
+import com.JosueJolon.RepuestosAutomotricez.Entity.Empleado;
 
 import java.util.List;
 
