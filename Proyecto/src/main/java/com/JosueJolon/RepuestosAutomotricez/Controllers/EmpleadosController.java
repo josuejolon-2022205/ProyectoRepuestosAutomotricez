@@ -1,6 +1,5 @@
 package com.JosueJolon.RepuestosAutomotricez.Controllers;
 
-
 import com.JosueJolon.RepuestosAutomotricez.Entity.Empleado;
 import com.JosueJolon.RepuestosAutomotricez.Exception.ResourceNotFoundException;
 import com.JosueJolon.RepuestosAutomotricez.Service.EmpleadoService;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/api/empleados")
