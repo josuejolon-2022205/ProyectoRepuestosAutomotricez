@@ -1,7 +1,8 @@
-package com.JosueJolon.RepuestosAutomotricez.Models;
+package com.JosueJolon.RepuestosAutomotricez.Entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 // entity es una entidad en spring que es una clase anotada que representa una tabla en una BD relacional, actua como un puente
 // entre la poo y sql(JPA hibernate) permitiendo mapear automaticamente atributos a columnas
@@ -18,15 +19,19 @@ public class Empleado {
     private Integer id_empleado;
 
     @Column(name = "nombre_empleado")
+    @NotBlank(message = "El nombre del empleado no puede estar vacio")
     private String nombre_empleado;
 
     @Column(name = "apellido_empleado")
+    @NotBlank(message = "el apellido del empleado no puede estar vacio")
     private String apellido_empleado;
 
     @Column(name = "puesto_empleado")
+    @NotBlank(message = "el puesto del empleado no puede estar vacio")
     private String puesto_empleado;
 
     @Column(name = "email_empleado")
+    @NotBlank(message = "El email del empleado no puede estar vacio")
     private String email_empleado;
 
 
