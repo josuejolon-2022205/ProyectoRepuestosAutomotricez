@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component // uso la anotacion @Component para crear una instancia de esta clase para que spring inyecte esta clase de "ayuda" porque si no creara la instancia
-//tendria que usar new cada vez que la quisiera mandar a llamar. Esta clase no se puso en el service ya que no queda con la logica de negocio y porque component
-// es usuada como auxiliar o para otras utilidades como este validador ya que las anotaciones como @controller, @Service y @Repository tiene su especialización
+@Component /*uso la anotacion @Component para crear una instancia de esta clase para que spring inyecte esta clase de "ayuda" porque si no creara la instancia
+           tendria que usar new cada vez que la quisiera mandar a llamar. Esta clase no se puso en el service ya que no queda con la logica de negocio y porque component
+            es usuada como auxiliar o para otras utilidades como este validador ya que las anotaciones como @controller, @Service y @Repository tiene su especialización*/
 public class EmpleadosValidator {
     private final EmpleadoRepository empleadoRepository;
 
